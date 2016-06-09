@@ -3,7 +3,7 @@
   .app
     h1 Hello World!
     p(v-if='token') You are authenticated with the following token #[strong {{token}}]
-    
+
 </template>
 
 <script>
@@ -28,4 +28,14 @@
 </script>
 
 <style lang="stylus">
+
+cream = #FCFBE3
+dark-blue = #0B3C5D
+light-blue = #328CC1
+gold = #D9B310
+ivory = #1D2731
+
+body
+  background-color: cream
+
 </style>
