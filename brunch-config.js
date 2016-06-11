@@ -3,6 +3,9 @@ module.exports = {
         javascripts: {
             joinTo: 'app.js'
         },
+        stylesheets: {
+            joinTo: 'app.css'
+        },
         templates: {
             joinTo: 'app.js'
         }
@@ -10,6 +13,11 @@ module.exports = {
     plugins: {
         babel: {
             presets: ['es2015']
+        },
+        sass: {
+            options: {
+                includePaths: ['app', 'vendor/styles']
+            }
         }
     }
 };
