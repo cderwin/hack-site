@@ -29,7 +29,7 @@
 
 <style lang="stylus">
 
-cream = #FCFBE3
+cream = #F8F8FF
 dark-blue = #0B3C5D
 light-blue = #328CC1
 gold = #D9B310
