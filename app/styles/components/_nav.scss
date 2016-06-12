@@ -2,12 +2,10 @@
   $base-border-radius: 3px !default;
   $dark-gray: #333 !default;
   $large-screen: 53.75em !default;
-  $base-font-color: $dark-gray !default;
   $centered-navigation-padding: 1em;
   $centered-navigation-logo-height: 2em;
-  $centered-navigation-background: #E7F1EC;
-  $centered-navigation-color: transparentize($base-font-color, 0.3);
-  $centered-navigation-color-hover: $base-font-color;
+  $centered-navigation-color: transparentize($header-font-color, 0.3);
+  $centered-navigation-color-hover: $header-font-color;
   $centered-navigation-height: 60px;
   $centered-navigation-item-padding: 1em;
   $centered-navigation-submenu-padding: 1em;
@@ -15,8 +13,8 @@
   $centered-navigation-item-nudge: 2.2em;
   $horizontal-bar-mode: $large-screen;
 
-  background-color: $centered-navigation-background;
-  border-bottom: 1px solid darken($centered-navigation-background, 6%);
+  background-color: $header-bg-color;
+  border-bottom: 1px solid darken($header-bg-color, 6%);
   min-height: $centered-navigation-height;
   width: 100%;
   z-index: 9999;
@@ -98,7 +96,7 @@
   }
 
   ul li.nav-link {
-    background: $centered-navigation-background;
+    background: $header-bg-color;
     display: block;
     line-height: $centered-navigation-height;
     overflow: hidden;
@@ -252,14 +250,14 @@
       }
 
       a {
-        background-color: darken($centered-navigation-background, 3%);
+        background-color: darken($header-bg-color, 3%);
         display: inline-block;
         text-align: right;
         text-decoration: none;
         width: 100%;
 
         @include media($horizontal-bar-mode) {
-          background-color: $centered-navigation-background;
+          background-color: $header-bg-color;
           padding-left: $centered-navigation-submenu-padding;
           text-align: left;
           width: $centered-navigation-submenu-width;
