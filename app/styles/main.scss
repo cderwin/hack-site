@@ -4,6 +4,9 @@
 $fa-font-path: '/fonts';
 @import "font-awesome/font-awesome";
 
+@import "fonts";
+
 @import "base";
 @import "components/nav";
 @import "components/footer";
+@import "components/error";
