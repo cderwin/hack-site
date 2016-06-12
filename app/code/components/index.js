@@ -1,4 +1,4 @@
-import app from './app'
-import error from './error'
+import app from './app.js'
+import error from './error.js'
 
 export {app, error}
