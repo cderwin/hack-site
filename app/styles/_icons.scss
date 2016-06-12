@@ -1,0 +1,19 @@
+.footer-icon-base {
+    @extend .fa;
+    @extend .fa-2x;
+}
+
+.github-icon {
+    @extend .footer-icon-base;
+    @extend .fa-github;
+}
+
+.link-icon {
+    @extend .footer-icon-base;
+    @extend .fa-external-link;
+}
+
+.twitter-icon {
+    @extend .footer-icon-base;
+    @extend .fa-twitter;
+}
