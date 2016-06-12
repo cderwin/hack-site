@@ -4,7 +4,7 @@
   $large-screen: 53.75em !default;
   $centered-navigation-padding: 1em;
   $centered-navigation-logo-height: 2em;
-  $centered-navigation-color: transparentize($header-font-color, 0.3);
+  $centered-navigation-color: $header-font-color;
   $centered-navigation-color-hover: $header-font-color;
   $centered-navigation-height: 60px;
   $centered-navigation-item-padding: 1em;

@@ -22,8 +22,11 @@ $base-z-index: 0;
 // Colors
 $main-blue: #0277BD;
 $alt-blue: #29B6F6;
-$main-red: #C62828;
-$white: #fff;
+$accent-color: #C62828;
+
+$white: #F7FFF7;
+$red: #FF4E54;
+$yellow: #FFFF39;
 
 // Builtin Colors
 $blue: #1565c0;
@@ -44,11 +47,11 @@ $base-background-color: #fff;
 $secondary-background-color: tint($base-border-color, 75%);
 
 // Header colors
-$header-bg-color: $main-blue;
+$header-bg-color: $yellow;
 $header-font-color: $white;
 
 // Footer colors
-$footer-bg-color: $main-blue;
+$footer-bg-color: $red;
 $footer-font-color: $white;
 
 // Forms
