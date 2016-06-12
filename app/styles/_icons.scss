@@ -1,19 +1,15 @@
-.footer-icon-base {
+.icon-base {
     @extend .fa;
     @extend .fa-2x;
 }
 
-.github-icon {
-    @extend .footer-icon-base;
-    @extend .fa-github;
+@mixin icon-class($icon-name) {
+    .#{$icon-name}-icon {
+        @extend .icon-base;
+        @extend .fa-#{$icon-name};
+    }
 }
 
-.link-icon {
-    @extend .footer-icon-base;
-    @extend .fa-external-link;
-}
-
-.twitter-icon {
-    @extend .footer-icon-base;
-    @extend .fa-twitter;
-}
+@include icon-class("github");
+@include icon-class("external-link");
+@include icon-class("twitter");
