@@ -2,8 +2,18 @@
     font-family: 'Abril Fatface', 'Arial', 'Helvetica';
     h1 {
         font-size: 2em;
-        i {
+        font-weight: normal;
+
+        b.primary {
+            font-weight: bold;
+            font-size: 1.8em;
+            padding-right: 1.25rem;
             color: $red;
+        }
+
+        p {
+            font-size: 1.8rem;
+            padding-top: 1rem;
         }
     }
 }
