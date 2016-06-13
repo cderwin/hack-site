@@ -1,9 +1,7 @@
 $base-spacing: 1em !default;
-$medium-screen: 40em !default;
-$large-screen: 53.75em !default;
-$footer-color: $footer-font-color;
-$footer-link-color: $footer-font-color;
 $footer-height: 5em;
+$footer-font-color: $blank;
+$footer-bg-color: $red;
 
 .footer {
   background: $footer-bg-color;
@@ -11,6 +9,16 @@ $footer-height: 5em;
   padding: $base-spacing;
   width: 100%;
   height: $footer-height;
+
+  button {
+    box-shadow: 3px 3px 10px 0px #000;
+    margin-right: 1.5em;
+    background-color: $blue;
+
+    a {
+      color: $blank;
+    }
+  }
 
   .footer-logo {
     margin-bottom: 1em;
@@ -50,12 +58,12 @@ $footer-height: 5em;
   }
 
   ul li a {
-    color: $footer-link-color;
+    color: $footer-font-color;
     text-decoration: none;
 
     &:focus,
     &:hover {
-      color: transparentize($footer-color, 0);
+      color: transparentize($footer-font-color, 0);
     }
   }
 
@@ -90,7 +98,7 @@ $footer-height: 5em;
 
       i {
         height: 1em;
-        opacity: 0.7;
+        opacity: 0.5;
         padding: 1px;
 
         &:focus,

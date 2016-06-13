@@ -1,18 +1,13 @@
 footer.footer(role='contentinfo')
-  .footer-logo
-    img(src='/logo.png', alt='logo')
-  ul
-    li
-      a(href='/') Home
-    li
-      a(href='/hdl') Hardware Simulator
-    li
-      a(href='/assembler') Assembler
-    li
-      a(href='/compiler') Virtual Machine
+  button.assemble
+    a(href='javascript:void(0)')  Assemble
+  button.run
+    a(href='javascript:void(0)')  Run
 
-  .footer-secondary-links
+  .footer-secondary-links.pull-right
     ul
+      li
+        a(href='http://www.nand2tetris.org/') Official Site
       li
         a(href='https://github.com/cderwin/hack-site') Contribute
       li
