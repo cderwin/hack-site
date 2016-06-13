@@ -10,6 +10,14 @@ export default {
             required: false
         }
     },
+    data: () => ({
+        actions: {
+            refresh: {
+                name: 'Home',
+                callback : () => location.href = '/'
+            }
+        }
+    }),
     created() {
         const route = this.$route;
         this.path = route.path;

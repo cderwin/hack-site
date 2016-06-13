@@ -10,5 +10,13 @@ export default Vue.component('app', {
             token: state => state.auth.token
         }
     },
+    data: () => ({
+        actions: {
+            assembler: {
+                name: 'Assembler',
+                callback: () => location.href = '/assembler'
+            }
+        }
+    }),
     created: () => Auth.signin('username', 'password')
 });

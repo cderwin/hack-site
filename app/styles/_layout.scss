@@ -14,14 +14,18 @@ html, body {
     background-color: $base-background-color;
 }
 
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
+.content {
+    @include outer-container;
 
-.wrapper {
     padding-top: 5em;
     padding-bottom: 3em;
-    flex: 1;
+}
+
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
 }

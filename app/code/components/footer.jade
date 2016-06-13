@@ -1,8 +1,7 @@
 footer.footer(role='contentinfo')
-  button.assemble
-    a(href='javascript:void(0)')  Assemble
-  button.run
-    a(href='javascript:void(0)')  Run
+  ul(v-for='(class, action) in actions')
+    li
+      button(class='{{class}}', @click='action.callback') {{action.name}}
 
   .footer-secondary-links.pull-right
     ul
