@@ -1,1 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+@include font-face("Aileron", "/fonts/Aileron-Regular");
+@include font-face("Aileron", "/fonts/Aileron-Black", bold);
+@include font-face("Aileron", "/fonts/Aileron-Thin", 100);
+@include font-face("Aileron", "/fonts/Aileron-Italic", normal, italic);
