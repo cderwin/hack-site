@@ -1,8 +1,9 @@
+$fa-font-path: '/fonts';
+
 @import "bourbon/bourbon";
 @import "neat/neat";
-
-$fa-font-path: '/fonts';
 @import "font-awesome/font-awesome";
+@import "codemirror";
 
 @import "fonts";
 
