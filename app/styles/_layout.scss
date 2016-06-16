@@ -14,13 +14,22 @@ html, body {
     background-color: $base-background-color;
 }
 
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    & > *:first-child {
+        flex: 1;
+    }
+}
+
 .content {
     @include outer-container;
 
-    padding-top: 5em;
-    padding-bottom: 3em;
+    margin-top: 5em;
+    margin-bottom: 3em;
 }
-
 
 .pull-right {
     float: right !important;

@@ -106,15 +106,3 @@ $footer-bg-color: $red;
     }
   }
 }
-
-// Sticky footer via flexbox
-
-.wrapper {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-
-    *:first-child {
-        flex: 1;
-    }
-}

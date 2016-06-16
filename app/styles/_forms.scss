@@ -59,6 +59,7 @@ select[multiple] {
 
 textarea {
   resize: vertical;
+  border: none;
 }
 
 [type="search"] {
@@ -81,3 +82,6 @@ select {
   max-width: 100%;
   width: auto;
 }
+ *:focus {
+     outline: none;
+ }
