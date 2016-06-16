@@ -1,0 +1,9 @@
+.content#assembler-content
+  hr
+  Editor
+  .output-hidden(v-for='instruction in code')
+      .instruction.instruction-{{ $index }}(@click='flip')
+          {{ instruction }}
+  hr
+
+AppFooter(:actions='actions')

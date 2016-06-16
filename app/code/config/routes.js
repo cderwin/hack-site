@@ -1,4 +1,4 @@
-import {app, error} from '../components';
+import {app, assembler, error} from '../components';
 
 export default {
     '*': {
@@ -9,13 +9,12 @@ export default {
     '/': {
         name: 'app',
         component: app
-    }
-/*
+    },
     '/assembler': {
         name: 'assembler',
         component: assembler
-    },
-
+    }
+/*
     '/emulator': {
         name: 'emulator',
         compnent: cpu_emulator

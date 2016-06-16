@@ -1,0 +1,20 @@
+#assembler-content {
+    @include outer-container(80%);
+    min-width: 80%;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    display: flex;
+    flex-direction: column;
+
+    
+    .code {
+        flex: 1;
+        position: relative;
+
+        & > div.CodeMirror {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
