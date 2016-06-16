@@ -5,4 +5,4 @@ DIRNAME=$(basename `pwd`)
 
 rm -rf public
 brunch build --production
-rsync -azP public ${REMOTE_MACHINE}:/var/www/${DIRNAME}
+rsync -azP --delete public/ ${REMOTE_MACHINE}:/var/www/${DIRNAME}
