@@ -10,6 +10,7 @@ export default {
         name: 'app',
         component: app
     },
+
     '/assembler': {
         name: 'assembler',
         component: assembler

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Auth from '../utils/auth';
+import {router} from '../initialize.js';
 import html from './app.jade';
 
 export default Vue.component('app', {
@@ -14,9 +15,8 @@ export default Vue.component('app', {
         actions: {
             assembler: {
                 name: 'Assembler',
-                callback: () => location.href = '/assembler'
+                callback: () => router.go('/assembler')
             }
         }
-    }),
-    created: () => Auth.signin('username', 'password')
+    })
 });

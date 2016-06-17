@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { router } from '../initialize.js';
 import html from './error.jade';
 
 export default {
@@ -14,7 +15,7 @@ export default {
         actions: {
             refresh: {
                 name: 'Home',
-                callback : () => location.href = '/'
+                callback : () => router.go('/')
             }
         }
     }),

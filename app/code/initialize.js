@@ -43,7 +43,7 @@ let application = {
 // Here we will create the router instance.
 // 
 
-let router = new VueRouter({
+export let router = new VueRouter({
     history: true
 });
 
