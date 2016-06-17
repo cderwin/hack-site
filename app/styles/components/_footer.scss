@@ -11,10 +11,8 @@ $footer-bg-color: $red;
   height: $footer-height;
 
   button {
-    box-shadow: 3px 3px 10px 0px #000;
-    margin-right: 1.5em;
-    background-color: $green;
     color: $blank;
+    border: 1px solid #fff;
   }
 
   .footer-logo {

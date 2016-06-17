@@ -1,9 +1,9 @@
 .content#assembler-content
   hr
-  Editor
-  .output-hidden(v-for='instruction in code')
-      .instruction.instruction-{{ $index }}(@click='flip')
-          {{ instruction }}
+  Editor(:content.sync='editorContent')
+  .output-hidden#assembler-instructions
+      .instruction(v-for='instruction in instructions', track-by='$index', @click='flipInstruction', class='instruction-{{ $index }}')
+        {{ instruction }}
   hr
 
 AppFooter(:actions='actions')
