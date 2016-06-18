@@ -1,4 +1,4 @@
-import {app, assembler, error} from '../components';
+import {assembler, error, root} from '../components';
 
 export default {
     '*': {
@@ -7,8 +7,8 @@ export default {
     },
 
     '/': {
-        name: 'app',
-        component: app
+        name: 'ropt',
+        component: root
     },
 
     '/assembler': {

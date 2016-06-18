@@ -1,9 +1,10 @@
 .content#assembler-content
   hr
-  Editor(:content.sync='editorContent')
-  .output-hidden#assembler-instructions
-      .instruction(v-for='instruction in instructions', track-by='$index', @click='flipInstruction', class='instruction-{{ $index }}')
-        {{ instruction }}
-  hr
+  .block
+    #editor(:class='editorClasses')
+        Editor(:content.sync='editorContent')
 
-AppFooter(:actions='actions')
+    #instructions(:class='instructionClasses')
+        .instruction(v-for='instruction in instructions', track-by='$index', @click='flipInstruction', class='instruction-{{ $index }}')
+          {{ instruction }}
+  hr

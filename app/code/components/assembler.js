@@ -1,31 +1,50 @@
 import Vue from 'vue';
 import html from './assembler.jade';
 import assemble from '../utils/assembler.js';
+import { footerStore } from './footer.js';
 
 export default Vue.component('assembler',
 {
     name: 'assembler',
     template: html(),
+
     data() {
         return {
             editorContent: '',
             instructions: [],
-            actions: {
-                assemble: {
-                    name: 'Assemble',
-                    callback: this.assemble
-                },
-                run: {
-                    name: 'Run',
-                    callback: this.run
-                }
-            }
+            editorClasses: ['code'],
+            instructionClasses: ['output-hidden'],
         };
     },
+
     methods: {
         assemble() {
             const assembly = this.editorContent;
             this.instructions = assemble(assembly);
+            this.editorClasses = ['code-thin'];
+            this.instructionClasses = ['output-show'];
+            footerStore.addAction('reset', 
+            {
+                name: 'Reset',
+                callback: () => {
+                    this.editorClasses = ['code'];
+                    this.instructionClasses = ['output-hidden'];
+                    footerStore.removeAction('reset');
+                }
+            });
         }
+    },
+
+    ready(){
+        footerStore.setActions({
+            assemble: {
+                name: 'Assemble',
+                callback: this.assemble
+            },
+            run: {
+                name: 'Run',
+                callback: this.run
+            }
+        });
     }
 });
