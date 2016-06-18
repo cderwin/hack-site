@@ -6,19 +6,35 @@
     display: flex;
     flex-direction: column;
 
-    
-    .code {
+    .block {
+        @include row();
         flex: 1;
         position: relative;
+    }
+
+    .code {
+        @include span-columns(12);
+
+        position: absolute;
+        height: 100%;
 
         & > div.CodeMirror {
-            position: absolute;
             height: 100%;
             width: 100%;
         }
     }
 
+    .code-thin {
+        @extend .code;
+        @include span-columns(8);
+    }
+
     .output-hidden {
-        display: none;
+        @include span-columns(0);
+    }
+
+    .output-show {
+        @include omega();
+        @include span-columns(4);
     }
 }
