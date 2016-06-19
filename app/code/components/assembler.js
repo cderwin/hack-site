@@ -2,6 +2,7 @@ import Vue from 'vue';
 import html from './assembler.jade';
 import assemble from '../utils/assembler.js';
 import { footerStore } from './footer.js';
+import { router } from '../initialize.js';
 
 export default Vue.component('assembler',
 {
@@ -29,6 +30,7 @@ export default Vue.component('assembler',
                 callback: () => {
                     this.editorClasses = ['code'];
                     this.instructionClasses = ['output-hidden'];
+                    this.instructions = [];
                     footerStore.removeAction('reset');
                 }
             });
@@ -43,7 +45,7 @@ export default Vue.component('assembler',
             },
             run: {
                 name: 'Run',
-                callback: this.run
+                callback: () => router.go('/vm')
             }
         });
     }

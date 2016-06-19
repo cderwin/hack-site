@@ -2,7 +2,7 @@
   hr
   .block
     #editor(:class='editorClasses')
-        Editor(:content.sync='editorContent')
+      Editor(:content.sync='editorContent')
 
     #instructions(:class='instructionClasses')
         .instruction(v-for='instruction in instructions', track-by='$index', @click='flipInstruction', class='instruction-{{ $index }}')

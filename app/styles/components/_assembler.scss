@@ -1,5 +1,4 @@
 #assembler-content {
-    @include outer-container(80%);
     min-width: 80%;
     margin-top: 3em;
     margin-bottom: 3em;
@@ -7,34 +6,36 @@
     flex-direction: column;
 
     .block {
-        @include row();
+        @include outer-container;
+        width: 100%;
+        display: flex;
         flex: 1;
-        position: relative;
-    }
 
-    .code {
-        @include span-columns(12);
+        .code {
+            @include span-columns(12);
+            flex: 1;
+            position: relative;
 
-        position: absolute;
-        height: 100%;
+            div.CodeMirror {
+                position:absolute;
+                height: 100%;
+                width: 100%;
+            }
+        }
 
-        & > div.CodeMirror {
-            height: 100%;
-            width: 100%;
+        .code-thin {
+            @extend .code;
+            @include span-columns(8);
+        }
+
+        .output-hidden {
+            @include span-columns(0);
+        }
+
+        .output-show {
+            @include omega();
+            @include span-columns(4);
         }
     }
 
-    .code-thin {
-        @extend .code;
-        @include span-columns(8);
-    }
-
-    .output-hidden {
-        @include span-columns(0);
-    }
-
-    .output-show {
-        @include omega();
-        @include span-columns(4);
-    }
 }
