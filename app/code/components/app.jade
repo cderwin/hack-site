@@ -1,3 +1,11 @@
 main.wrapper#content
+  template(v-if='$route.path != "/"')
+    #home-nav
+      a(v-link='{ path: "/" }')
+        i.home-icon
+    #settings-nav
+      a(v-link='{ path: $route.path, params: {settings: true} }')
+        i.cog-icon
+
   router-view
   AppFooter
