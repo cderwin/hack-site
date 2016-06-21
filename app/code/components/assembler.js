@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import html from './assembler.jade';
-import assemble from '../utils/assembler.js';
+import { Assembler } from '../utils/assembler.js';
 import { footerStore } from './footer.js';
 import { router } from '../initialize.js';
 
@@ -12,25 +12,24 @@ export default Vue.component('assembler',
     data() {
         return {
             editorContent: '',
-            instructions: [],
+            assembler: new Assembler(),
             editorClasses: ['code'],
-            instructionClasses: ['output-hidden'],
+            showInstructions: false
         };
     },
 
     methods: {
         assemble() {
-            const assembly = this.editorContent;
-            this.instructions = assemble(assembly);
+            this.assembler.clearState();
+            this.assembler.assemble(this.editorContent);
             this.editorClasses = ['code-thin'];
-            this.instructionClasses = ['output-show'];
-            footerStore.addAction('reset', 
+            this.showInstructions = true;
+            footerStore.addAction('reset',
             {
                 name: 'Reset',
                 callback: () => {
                     this.editorClasses = ['code'];
-                    this.instructionClasses = ['output-hidden'];
-                    this.instructions = [];
+                    this.showInstructions = false;
                     footerStore.removeAction('reset');
                 }
             });

@@ -10,6 +10,7 @@
         width: 100%;
         display: flex;
         flex: 1;
+        min-height: 0%;
 
         .code {
             @include span-columns(12);
@@ -28,13 +29,22 @@
             @include span-columns(8);
         }
 
-        .output-hidden {
-            @include span-columns(0);
-        }
-
-        .output-show {
+        #instructions {
             @include omega();
             @include span-columns(4);
+
+            overflow: auto;
+
+            .instruction {
+                padding: 1em;
+                border-radius: 10px;
+                border: 1px solid $red;
+                margin-bottom: 0.5em;
+
+                & > *:last-child {
+                    margin-bottom: 0px;
+                }
+            }
         }
     }
 

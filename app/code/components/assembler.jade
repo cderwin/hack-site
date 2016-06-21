@@ -4,7 +4,7 @@
     #editor(:class='editorClasses')
       Editor(:content.sync='editorContent')
 
-    #instructions(:class='instructionClasses')
-        .instruction(v-for='instruction in instructions', track-by='$index', @click='flipInstruction', class='instruction-{{ $index }}')
-          {{ instruction }}
+    #instructions(v-if='showInstructions')
+        .instruction(v-for='instruction in assembler.instructions', track-by='$index', @click='flipInstruction', id='instruction-{{ $index }}')
+          {{ instruction.binary }}
   hr
