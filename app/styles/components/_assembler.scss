@@ -1,5 +1,6 @@
 #assembler-content {
     min-width: 80%;
+    max-height: 100%;
     margin-top: 3em;
     margin-bottom: 3em;
     display: flex;
@@ -33,19 +34,26 @@
             @include omega();
             @include span-columns(4);
 
+            height: 100%;
             overflow: auto;
 
-            .instruction {
-                padding: 1em;
-                border-radius: 10px;
-                border: 1px solid $red;
-                margin-bottom: 0.5em;
+            ul.instruction-list {
+                height: 100%;
+                overflow: auto;
 
-                & > *:last-child {
-                    margin-bottom: 0px;
+                padding-right: 10px;
+
+                .instruction {
+                    padding: 1em;
+                    border-radius: 10px;
+                    border: 1px solid $red;
+                    margin-bottom: 0.5em;
+
+                    & > *:last-child {
+                        margin-bottom: 0px;
+                    }
                 }
             }
         }
     }
-
 }

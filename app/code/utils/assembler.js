@@ -1,4 +1,5 @@
 const MAX_ADDR = Math.pow(2, 15) - 1;
+const BITLENGTH = 32;
 
 
 function leftPad(base, minLength, pad=' '){
@@ -109,11 +110,79 @@ class AInstruction extends Instruction {
 
 
 class CInstruction extends Instruction {
-    constructor(assignment=null, op=null, jmp=null){
+
+    constructor(dest, comp, jump){
         super();
-        // To Do
+        this.initAttrs();
+
+        if (!comp)
+            throw "No comp given, required argument"
+
+        let instruction = '111';
+        instruction += this.comps[comp];
+        instruction += this.dests[dest].toString(2);
+        instruction += this.jumps[jump].toString(2);
+        instruction = parseInt(instruction, 2);
+        this.buffer[0] = instruction;
+    }
+
+    get dest()
+    {
+        const instruction = this.buffer[0];
+        const val = parseInt(this.screen(instruction, 10, 13), 2);
+        for (let key in this.dests.keys())
+        {
+            if (val == this.dests[key])
+                return key;
+        }
+    }
+
+    set dest(value){
+        if (!this.dests.keys().contains(value))
+            throw 'Invalid dest value';
+
+        const bits = leftPad(this.dests[dest] , 3, '0');
+        let instruction = this.binary;
+        instruction = instruction.substr(0, 10) + bits + instruction.substr(13, 3);
+        this.binary = instruction;
+    }
+
+    initAttrs()
+    {
+        // Part declarations
+        this.dests = {null: 0, 'M=': 1, 'D=': 2, 'MD=': 3, 'A=': 4, 'AM=': 5, 'AD=': 6, 'AMD=': 7};
+
+        this.jumps = {null: 0, ';JGT': 1, ';JEQ': 2, ';JGE': 3, ';JLT': 4, ';JNE': 5, ';JLE': 6, ';JMP': 7};
+
+        this.comps = {
+            '0':   '0101010', '1':   '0111111', '-1':  '0111010', 'D':   '0001100', 'A':   '0110000', '!D':  '0001101', '!A':  '0110001',
+            '-D':  '0001111', '-A':  '0110011', 'D+1': '0011111', 'A+1': '0110111', 'D-1': '0001110', 'A-1': '0110010', 'D+A': '0000010',
+            'D-A': '0010011', 'A-D': '0000111', 'D&A': '0000000', 'D|A': '0010101', 'M':   '1110000', '!M':  '1110001', '-M':  '1110011', 
+            'M+1': '1110111', 'M-1': '1110010', 'D+M': '1000010', 'D-M': '1010011', 'M-D': '1000111', 'D&M': '1000000', 'D|M': '1010101'
+        };
+    }
+
+    static screen(value, min=0, max=null)
+    {
+        // Returns bits of index min through max as a binary string
+        if (!max)
+            max = Math.ceil(Math.log(value) / Math.log(2));
+
+        const minBitMask = (-1 >>> (BITLENGTH - min));
+        const maxBitMask = (-1 >>> (BITLENGTH - max));
+        return (value & maxBitMask) & (~minBitMask);
     }
 }
+
+// Class variables
+CInstruction.dests = {null: 0, 'M=': 1, 'D=': 2, 'MD=': 3, 'A=': 4, 'AM=': 5, 'AD=': 6, 'AMD=': 7};
+CInstruction.jumps = {null: 0, ';JGT': 1, ';JEQ': 2, ';JGE': 3, ';JLT': 4, ';JNE': 5, ';JLE': 6, ';JMP': 7};
+CInstruction.comps = {
+    '0':   '0101010', '1':   '0111111', '-1':  '0111010', 'D':   '0001100', 'A':   '0110000', '!D':  '0001101', '!A':  '0110001',
+    '-D':  '0001111', '-A':  '0110011', 'D+1': '0011111', 'A+1': '0110111', 'D-1': '0001110', 'A-1': '0110010', 'D+A': '0000010',
+    'D-A': '0010011', 'A-D': '0000111', 'D&A': '0000000', 'D|A': '0010101', 'M':   '1110000', '!M':  '1110001', '-M':  '1110011', 
+    'M+1': '1110111', 'M-1': '1110010', 'D+M': '1000010', 'D-M': '1010011', 'M-D': '1000111', 'D&M': '1000000', 'D|M': '1010101'
+};
 
 
 export class Assembler {
@@ -209,7 +278,7 @@ export class Assembler {
 
     parseCInstruction(line)
     {
-        // to-do
+        // To Do
     }
 
     assemble(text)
