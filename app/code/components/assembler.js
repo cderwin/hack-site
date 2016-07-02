@@ -33,6 +33,20 @@ export default Vue.component('assembler',
                     footerStore.removeAction('reset');
                 }
             });
+        },
+
+        run() {
+            this.assembler.clearState();
+            this.assembler.assemble(this.editorContent);
+            const instructions = this.assembler.fetch_instructions();
+            this.load_instructions(instructions);
+            router.go('/vm');
+        }
+    },
+
+    vuex: {
+        actions: {
+            fetch_instructions
         }
     },
 
@@ -44,7 +58,7 @@ export default Vue.component('assembler',
             },
             run: {
                 name: 'Run',
-                callback: () => router.go('/vm')
+                callback: this.run
             }
         });
     }

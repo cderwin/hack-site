@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import Auth from '../utils/auth';
 import { router } from '../initialize.js';
 import html from './root.jade';
 import { footerStore } from './footer.js';
@@ -16,7 +15,7 @@ export default Vue.component('root', {
         });
     },
     vuex: {
-        state: {
+        getters: {
             token: state => state.auth.token
         }
     }

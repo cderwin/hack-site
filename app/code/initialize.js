@@ -5,7 +5,7 @@ import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import VueValidator from 'vue-validator';
 
-import store from './state/store';
+import store from './vuex/store';
 import routes from './config/routes';
 import { app } from './components';
 import { footerStore } from './components/footer.js';
@@ -14,7 +14,7 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(VueValidator);
 
-const environment = process.env.NODE_ENV;
+export const environment = process.env.NODE_ENV;
 Vue.config.debug = (environment === 'development');
 Vue.config.devtools = (environment === 'development');
 

@@ -2,17 +2,19 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Logger from 'vuex/logger';
 
-import auth from './modules/auth';
+import { environment } from '../initialize';
+import { assembler, footer, vm } from './modules';
 
 Vue.use(Vuex);
-Vue.config.debug = true;
 
 export default new Vuex.Store({
 
-    strict: true,
+    strict: (environment !== 'production'),
 
     modules: {
-        auth
+        assembler,
+        footer,
+        vm
     },
 
     middlewares: [

@@ -7,5 +7,5 @@
     #instructions(v-if='showInstructions')
         ul.instruction-list
           li.instruction(v-for='instruction in assembler.instructions', track-by='$index', @click='flipInstruction', id='instruction-{{ $index }}')
-            {{ instruction.binary }}
+             {{ instruction.binary }}
   hr
